@@ -1,6 +1,6 @@
-package com.sg.job.streaming
+package com.dgskola.job.streaming
 
-import com.sg.wrapper.SparkSessionWrapper
+import com.dgskola.wrapper.SparkSessionWrapper
 import org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
@@ -8,11 +8,11 @@ object StreamingJob extends App with SparkSessionWrapper {
 
   val currentDirectory = new java.io.File(".").getCanonicalPath
   val kafkaReaderConfig = KafkaReaderConfig("localhost:29092", "dbserver1.inventory.orders")
-  val jdbcConfig = JDBCConfig(url = "jdbc:postgresql://localhost:5432/test")
+  val jdbcConfig = JDBCConfig(url = "jdbc:postgresql://localhost:5432/postgres")
   new StreamingJobExecutor(spark, kafkaReaderConfig, currentDirectory + "/checkpoint/job", jdbcConfig).execute()
 }
 
-case class JDBCConfig(url: String, user: String = "test", password: String = "Test123", tableName: String = "orders_it")
+case class JDBCConfig(url: String, user: String = "postgres", password: String = "postgres", tableName: String = "orders_it")
 
 case class KafkaReaderConfig(kafkaBootstrapServers: String, topics: String, startingOffsets: String = "latest")
 

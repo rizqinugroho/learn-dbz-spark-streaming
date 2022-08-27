@@ -1,4 +1,4 @@
-package com.sg.wrapper
+package com.dgskola.wrapper
 
 import com.dimafeng.testcontainers.{KafkaContainer, MySQLContainer, PostgreSQLContainer}
 import io.debezium.testing.testcontainers.DebeziumContainer

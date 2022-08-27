@@ -1,4 +1,4 @@
-package com.sg.wrapper
+package com.dgskola.wrapper
 
 import org.apache.spark.sql.SparkSession
 

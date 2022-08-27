@@ -49,7 +49,7 @@ services:
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
       - STATUS_STORAGE_TOPIC=my_connect_statuses
   postgresql:
-    image: sameersbn/postgresql:9.4
+    image: postgres:10.5
     container_name: postgresql
     environment:
       - DEBUG=false
